@@ -474,20 +474,6 @@ export default function AdminPage({
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
               <span className="eyebrow" style={{ margin: 0 }}>Management Console</span>
-              <span style={{
-                fontSize: '0.72rem',
-                padding: '0.2rem 0.6rem',
-                borderRadius: '999px',
-                background: dbSource.includes('MongoDB') ? '#E8F5E9' : '#FFF3E0',
-                color: dbSource.includes('MongoDB') ? '#2E7D32' : '#E65100',
-                fontWeight: 600,
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.3rem'
-              }}>
-                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: dbSource.includes('MongoDB') ? '#2E7D32' : '#E65100' }} />
-                {dbSource}
-              </span>
             </div>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', lineHeight: 1.1, marginTop: '0.2rem' }}>
               SkinCare Brand Admin Panel
@@ -576,72 +562,6 @@ export default function AdminPage({
         {/* ======================================================== */}
         {activeTab === 'overview' && (
           <div>
-            {/* MongoDB Atlas Integration Banner */}
-            <div style={{
-              background: 'linear-gradient(135deg, #001E2B 0%, #00684A 100%)',
-              color: '#FFFFFF',
-              borderRadius: '24px',
-              padding: '1.75rem 2rem',
-              marginBottom: '2.5rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap',
-              gap: '1.5rem',
-              boxShadow: '0 12px 32px rgba(0, 104, 74, 0.2)'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-                <div style={{
-                  width: '52px',
-                  height: '52px',
-                  borderRadius: '16px',
-                  background: 'rgba(255,255,255,0.15)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '1.75rem'
-                }}>
-                  🍃
-                </div>
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-                    <span style={{ fontWeight: 700, fontSize: '1.15rem' }}>MongoDB Atlas Cloud Database</span>
-                    <span style={{
-                      background: '#00ED64',
-                      color: '#001E2B',
-                      fontSize: '0.7rem',
-                      fontWeight: 800,
-                      padding: '0.2rem 0.6rem',
-                      borderRadius: '999px',
-                      textTransform: 'uppercase'
-                    }}>
-                      CONNECTED
-                    </span>
-                  </div>
-                  <p style={{ fontSize: '0.84rem', opacity: 0.85, margin: 0 }}>
-                    Cluster: <strong>Cluster0 (izmsupi.mongodb.net)</strong> • Database: <strong>skincare-brand</strong> • Records: {productsList.length} products, {ordersList.length} orders, {customersList.length} customers
-                  </p>
-                </div>
-              </div>
-              <button
-                onClick={fetchAllData}
-                style={{
-                  background: '#FFFFFF',
-                  color: '#001E2B',
-                  padding: '0.65rem 1.25rem',
-                  borderRadius: '999px',
-                  fontSize: '0.82rem',
-                  fontWeight: 700,
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  cursor: 'pointer',
-                  border: 'none'
-                }}
-              >
-                <RefreshCw size={14} /> Refresh MongoDB Data
-              </button>
-            </div>
 
             {/* KPI Cards */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
@@ -668,7 +588,7 @@ export default function AdminPage({
                 <div style={{ fontSize: '2rem', fontWeight: 700, fontFamily: 'var(--font-serif)', color: 'var(--text-primary)', margin: '0.3rem 0' }}>
                   {customersList.length || stats.customerCount || 0}
                 </div>
-                <span style={{ fontSize: '0.78rem', color: 'var(--accent-sage)', fontWeight: 600 }}>Recorded in MongoDB Atlas</span>
+                <span style={{ fontSize: '0.78rem', color: 'var(--accent-sage)', fontWeight: 600 }}>Active customer profiles</span>
               </div>
 
               <div style={{ background: 'var(--bg-card)', borderRadius: '20px', padding: '1.75rem', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)' }}>
@@ -958,175 +878,6 @@ export default function AdminPage({
         )}
 
         {/* ======================================================== */}
-        {/* TAB 4: CUSTOMERS & CLIENT DIRECTORY */}
-        {/* ======================================================== */}
-        {activeTab === 'customers' && (
-          <div>
-            {/* Header & Controls */}
-            <div style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '1rem',
-              marginBottom: '1.5rem'
-            }}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.6rem',
-                background: 'var(--bg-card)',
-                padding: '0.55rem 1rem',
-                borderRadius: '12px',
-                border: '1px solid var(--border-medium)',
-                minWidth: '280px'
-              }}>
-                <Search size={16} color="var(--text-muted)" />
-                <input
-                  type="text"
-                  placeholder="Search customer name, email, phone..."
-                  value={customerSearch}
-                  onChange={(e) => setCustomerSearch(e.target.value)}
-                  style={{ border: 'none', background: 'transparent', width: '100%', fontSize: '0.85rem' }}
-                />
-              </div>
-
-              <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-                <span style={{ fontSize: '0.82rem', color: 'var(--brand-green-accent)', fontWeight: 600 }}>
-                  🍃 Recorded in MongoDB Atlas
-                </span>
-                <button
-                  onClick={() => setIsCustomerModalOpen(true)}
-                  className="btn btn-primary"
-                  style={{ padding: '0.65rem 1.25rem', fontSize: '0.85rem' }}
-                >
-                  <Plus size={16} /> Record New Customer
-                </button>
-              </div>
-            </div>
-
-            {/* Customers Table */}
-            <div style={{
-              background: 'var(--bg-card)',
-              borderRadius: '20px',
-              border: '1px solid var(--border-light)',
-              overflowX: 'auto',
-              boxShadow: 'var(--shadow-sm)'
-            }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.88rem' }}>
-                <thead>
-                  <tr style={{ background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border-light)', color: 'var(--text-muted)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                    <th style={{ padding: '1rem 1.25rem' }}>Customer Profile</th>
-                    <th style={{ padding: '1rem' }}>Contact Info</th>
-                    <th style={{ padding: '1rem' }}>Location / City</th>
-                    <th style={{ padding: '1rem' }}>Orders Placed</th>
-                    <th style={{ padding: '1rem' }}>Total Spend</th>
-                    <th style={{ padding: '1rem' }}>Joined / Order Date</th>
-                    <th style={{ padding: '1rem 1.25rem', textAlign: 'right' }}>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {customersList
-                    .filter(c => 
-                      c.name?.toLowerCase().includes(customerSearch.toLowerCase()) ||
-                      c.email?.toLowerCase().includes(customerSearch.toLowerCase()) ||
-                      c.phone?.includes(customerSearch) ||
-                      c.city?.toLowerCase().includes(customerSearch.toLowerCase())
-                    )
-                    .map((cust) => (
-                      <tr key={cust.id || cust._id} style={{ borderBottom: '1px solid var(--border-light)' }}>
-                        <td style={{ padding: '1rem 1.25rem' }}>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                            <div style={{
-                              width: '38px',
-                              height: '38px',
-                              borderRadius: '50%',
-                              background: 'var(--brand-green-light)',
-                              color: 'var(--brand-green-deep)',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              fontWeight: 700,
-                              fontSize: '0.9rem'
-                            }}>
-                              {cust.name?.charAt(0)?.toUpperCase() || 'C'}
-                            </div>
-                            <div>
-                              <div style={{ fontWeight: 600, color: 'var(--brand-green-deep)' }}>{cust.name}</div>
-                              <span style={{
-                                fontSize: '0.68rem',
-                                padding: '0.15rem 0.5rem',
-                                borderRadius: '999px',
-                                background: cust.ordersCount > 1 ? '#E8F5E9' : 'var(--bg-secondary)',
-                                color: cust.ordersCount > 1 ? '#2E7D32' : 'var(--text-muted)',
-                                fontWeight: 700,
-                                textTransform: 'uppercase'
-                              }}>
-                                {cust.ordersCount > 1 ? '⭐ VIP Customer' : 'Client'}
-                              </span>
-                            </div>
-                          </div>
-                        </td>
-
-                        <td style={{ padding: '1rem' }}>
-                          <div style={{ fontWeight: 500 }}>{cust.email}</div>
-                          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{cust.phone || 'No phone recorded'}</div>
-                        </td>
-
-                        <td style={{ padding: '1rem' }}>
-                          <div>{cust.city || 'Ludhiana, India'}</div>
-                          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{cust.address || 'Standard Shipping'}</div>
-                        </td>
-
-                        <td style={{ padding: '1rem', fontWeight: 600 }}>
-                          {cust.ordersCount || 0} order{cust.ordersCount !== 1 ? 's' : ''}
-                        </td>
-
-                        <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--brand-green-deep)' }}>
-                          ₹{(cust.totalSpent || 0).toLocaleString('en-IN')}
-                        </td>
-
-                        <td style={{ padding: '1rem', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                          {cust.createdAt ? new Date(cust.createdAt).toLocaleDateString() : 'Active'}
-                        </td>
-
-                        <td style={{ padding: '1rem 1.25rem', textAlign: 'right' }}>
-                          <button
-                            onClick={() => handleDeleteCustomer(cust.id || cust._id, cust.name)}
-                            aria-label="Delete Customer"
-                            style={{
-                              padding: '0.4rem',
-                              color: '#D9534F',
-                              borderRadius: '8px',
-                              background: 'transparent',
-                              border: 'none',
-                              cursor: 'pointer'
-                            }}
-                            title="Delete customer"
-                          >
-                            <Trash2 size={16} />
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                  {customersList.length === 0 && (
-                    <tr>
-                      <td colSpan={7} style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-muted)' }}>
-                        <Users size={36} style={{ margin: '0 auto 1rem auto', opacity: 0.4 }} />
-                        <p style={{ fontWeight: 600 }}>No customer accounts recorded yet.</p>
-                        <p style={{ fontSize: '0.82rem', marginTop: '0.25rem' }}>
-                          Customers are automatically recorded in MongoDB Atlas when they register or place orders at checkout!
-                        </p>
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        )}
-
-        {/* ======================================================== */}
         {/* TAB 3: ORDERS MANAGEMENT */}
         {/* ======================================================== */}
         {activeTab === 'orders' && (
@@ -1277,9 +1028,6 @@ export default function AdminPage({
               </div>
 
               <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-                <span style={{ fontSize: '0.82rem', color: 'var(--brand-green-accent)', fontWeight: 600 }}>
-                  🍃 Recorded in MongoDB Atlas
-                </span>
                 <button
                   onClick={() => setIsCustomerModalOpen(true)}
                   className="btn btn-primary"
@@ -1400,7 +1148,7 @@ export default function AdminPage({
                         <Users size={36} style={{ margin: '0 auto 1rem auto', opacity: 0.4 }} />
                         <p style={{ fontWeight: 600 }}>No customer accounts recorded yet.</p>
                         <p style={{ fontSize: '0.82rem', marginTop: '0.25rem' }}>
-                          Customers are automatically recorded in MongoDB Atlas when they register or place orders at checkout!
+                          Customers are automatically recorded when they register or place orders at checkout!
                         </p>
                       </td>
                     </tr>
@@ -2129,7 +1877,7 @@ export default function AdminPage({
               <X size={20} />
             </button>
 
-            <span className="eyebrow" style={{ color: 'var(--brand-green-accent)', fontWeight: 700 }}>MongoDB Atlas Directory</span>
+            <span className="eyebrow" style={{ color: 'var(--brand-green-accent)', fontWeight: 700 }}>Customer Directory</span>
             <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', color: 'var(--brand-green-deep)', marginBottom: '1.5rem' }}>
               Record New Customer
             </h2>
@@ -2218,7 +1966,7 @@ export default function AdminPage({
                   className="btn btn-primary"
                   style={{ flex: 1 }}
                 >
-                  Save in MongoDB
+                  Save Customer
                 </button>
               </div>
             </form>
