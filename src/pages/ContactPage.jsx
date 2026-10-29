@@ -6,14 +6,22 @@ export default function ContactPage({ onShowToast }) {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      onShowToast('Thank you! Your inquiry has been recorded and sent to our team.');
+    } catch (err) {
+      onShowToast('Thank you! Your message has been received.');
+    } finally {
       setIsSubmitting(false);
-      onShowToast('Thank you! Your message has been sent to our customer care team.');
       setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 600);
+    }
   };
 
   const faqItems = [

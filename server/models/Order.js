@@ -25,7 +25,8 @@ const orderSchema = new mongoose.Schema({
   paymentMethod: String,
   status: { type: String, default: 'Processing' }
 }, {
-  timestamps: true
+  timestamps: true,
+  strict: false
 });
 
 export const Order = mongoose.models.Order || mongoose.model('Order', orderSchema);

@@ -29,7 +29,8 @@ const productSchema = new mongoose.Schema({
   availability: { type: String, default: 'Formulation In Progress' },
   placeholderTheme: { type: String, default: 'rose' }
 }, {
-  timestamps: true
+  timestamps: true,
+  strict: false
 });
 
 export const Product = mongoose.models.Product || mongoose.model('Product', productSchema);

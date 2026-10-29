@@ -26,10 +26,39 @@ export default function CheckoutPage({
   const shipping = subtotal >= 2500 || subtotal === 0 ? 0 : 150;
   const total = subtotal + shipping;
 
-  const handleSubmitOrder = (e) => {
+  const handleSubmitOrder = async (e) => {
     e.preventDefault();
-    const generatedId = `AB-${Math.floor(100000 + Math.random() * 900000)}`;
+    const generatedId = `NC-${Math.floor(100000 + Math.random() * 900000)}`;
     setOrderId(generatedId);
+
+    const orderPayload = {
+      orderId: generatedId,
+      customer: formData,
+      items: cartItems.map(item => ({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        selectedSize: item.selectedSize || 'Standard',
+        quantity: item.quantity
+      })),
+      subtotal,
+      shipping,
+      total,
+      paymentMethod: formData.paymentMethod || 'card',
+      status: 'Processing',
+      createdAt: new Date().toISOString()
+    };
+
+    try {
+      await fetch('/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderPayload)
+      });
+    } catch (err) {
+      console.warn('Recorded locally:', err);
+    }
+
     setOrderComplete(true);
     onClearCart();
   };

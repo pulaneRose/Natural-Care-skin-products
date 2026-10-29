@@ -59,7 +59,7 @@ export default function App() {
 
   const handleLogin = async (email, password) => {
     try {
-      const res = await fetch('http://localhost:5000/api/auth/login', {
+      const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -81,7 +81,7 @@ export default function App() {
 
   const handleSignup = async (name, email, password) => {
     try {
-      const res = await fetch('http://localhost:5000/api/auth/signup', {
+      const res = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password })
@@ -91,13 +91,26 @@ export default function App() {
 
       setCurrentUser(data.user);
       localStorage.setItem('skincare_user', JSON.stringify(data.user));
-      showToast(`Account created! Welcome to SkinCare Brand, ${data.user.name.split(' ')[0]}.`);
+      showToast(`Account created! Welcome to Natural Care, ${data.user.name.split(' ')[0]}.`);
     } catch (err) {
       // Fallback if backend server is offline
       const mockUser = { id: `usr-${Date.now()}`, name, email };
       setCurrentUser(mockUser);
       localStorage.setItem('skincare_user', JSON.stringify(mockUser));
       showToast(`Account created! Welcome, ${name.split(' ')[0]}.`);
+    }
+  };
+
+  const handleSubscribeNewsletter = async (email) => {
+    try {
+      await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      showToast(`Thank you! ${email} has been subscribed to Natural Care.`);
+    } catch (err) {
+      showToast(`Subscribed ${email} to Natural Care.`);
     }
   };
 
@@ -192,7 +205,7 @@ export default function App() {
             onAddToCart={handleAddToCart}
             onToggleWishlist={handleToggleWishlist}
             wishlistIds={wishlistIds}
-            onSubscribeNewsletter={(email) => showToast(`Subscribed ${email} to SkinCare Brand updates.`)}
+            onSubscribeNewsletter={handleSubscribeNewsletter}
             setSelectedConcern={setSelectedConcern}
           />
         )}
@@ -278,7 +291,7 @@ export default function App() {
       <Footer
         setActivePage={setActivePage}
         onOpenQr={() => setIsQrModalOpen(true)}
-        onSubscribeNewsletter={(email) => showToast(`Subscribed ${email} to SkinCare Brand updates.`)}
+        onSubscribeNewsletter={handleSubscribeNewsletter}
       />
 
       {/* Slide-out Cart Drawer */}

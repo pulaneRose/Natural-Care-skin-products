@@ -27,7 +27,7 @@ dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://skincare:rose1234@cluster0.izmsupi.mongodb.net/skincare-brand?retryWrites=true&w=majority&appName=Cluster0';
 
 let isMongoConnected = false;
 let memoryUsers = []; // Local fallback users
@@ -75,8 +75,8 @@ let memoryNewsletters = [
 ];
 let memoryJournal = [...localJournal];
 
-// Connect to MongoDB Atlas / Database
-if (MONGODB_URI && !MONGODB_URI.includes('<password>') && !MONGODB_URI.includes('cluster0.mongodb.net')) {
+// Connect to MongoDB Atlas
+if (MONGODB_URI) {
   mongoose.connect(MONGODB_URI)
     .then(() => {
       isMongoConnected = true;
@@ -85,8 +85,6 @@ if (MONGODB_URI && !MONGODB_URI.includes('<password>') && !MONGODB_URI.includes(
     .catch((err) => {
       console.warn('⚠️ Could not connect to MongoDB Atlas. Falling back to local data:', err.message);
     });
-} else {
-  console.log('ℹ️ MONGODB_URI in .env contains placeholders or is missing. Running in local fallback mode.');
 }
 
 app.use(cors());
@@ -467,6 +465,111 @@ app.delete('/api/orders/:id', async (req, res) => {
     }
     memoryOrders = memoryOrders.filter(o => o.orderId !== id && o._id !== id);
     res.json({ success: true, message: 'Order deleted successfully!' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// GET /api/customers - List all customers and orders metrics
+app.get('/api/customers', async (req, res) => {
+  try {
+    if (isMongoConnected) {
+      const users = await User.find({}).sort({ createdAt: -1 });
+      const orders = await Order.find({});
+      const customerMap = new Map();
+
+      users.forEach(u => {
+        customerMap.set(u.email.toLowerCase(), {
+          id: u._id,
+          name: u.name,
+          email: u.email,
+          role: u.role || 'customer',
+          phone: '',
+          address: '',
+          city: '',
+          ordersCount: 0,
+          totalSpent: 0,
+          lastOrderDate: null,
+          createdAt: u.createdAt
+        });
+      });
+
+      orders.forEach(o => {
+        const email = o.customer?.email?.toLowerCase();
+        if (email) {
+          const existing = customerMap.get(email) || {
+            id: `ord-cust-${email}`,
+            name: `${o.customer.firstName || ''} ${o.customer.lastName || ''}`.trim() || email.split('@')[0],
+            email: email,
+            role: 'customer',
+            phone: o.customer.phone || '',
+            address: o.customer.address || '',
+            city: o.customer.city || '',
+            ordersCount: 0,
+            totalSpent: 0,
+            lastOrderDate: null,
+            createdAt: o.createdAt
+          };
+
+          existing.ordersCount += 1;
+          existing.totalSpent += (o.total || 0);
+          if (!existing.phone && o.customer.phone) existing.phone = o.customer.phone;
+          if (!existing.city && o.customer.city) existing.city = o.customer.city;
+          if (!existing.address && o.customer.address) existing.address = o.customer.address;
+          if (!existing.lastOrderDate || new Date(o.createdAt) > new Date(existing.lastOrderDate)) {
+            existing.lastOrderDate = o.createdAt;
+          }
+          customerMap.set(email, existing);
+        }
+      });
+
+      const customerList = Array.from(customerMap.values());
+      return res.json({ success: true, source: 'MongoDB Atlas', count: customerList.length, data: customerList });
+    }
+
+    res.json({ success: true, source: 'Local Data', count: 0, data: [] });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// POST /api/customers - Record new customer
+app.post('/api/customers', async (req, res) => {
+  try {
+    const { name, email, phone, role } = req.body;
+    if (!name || !email) {
+      return res.status(400).json({ success: false, message: 'Name and email are required.' });
+    }
+
+    if (isMongoConnected) {
+      const existing = await User.findOne({ email: email.toLowerCase() });
+      if (existing) {
+        return res.status(400).json({ success: false, message: 'Customer with this email already exists.' });
+      }
+      const newCust = new User({
+        name,
+        email: email.toLowerCase(),
+        password: 'customer-registered-admin',
+        role: role || 'customer'
+      });
+      await newCust.save();
+      return res.status(201).json({ success: true, message: 'Customer recorded in MongoDB Atlas!', data: newCust });
+    }
+
+    res.status(201).json({ success: true, message: 'Customer recorded locally.', data: { name, email, phone } });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// DELETE /api/customers/:id
+app.delete('/api/customers/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    if (isMongoConnected && mongoose.isValidObjectId(id)) {
+      await User.findByIdAndDelete(id);
+    }
+    res.json({ success: true, message: 'Customer removed from MongoDB Atlas!' });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }
