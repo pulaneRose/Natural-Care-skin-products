@@ -1204,14 +1204,14 @@ export default function AdminPage({
                   border: '1px solid rgba(20,53,35,0.15)'
                 }}>
                   <QrCode size={13} />
-                  <span>Instant Wi-Fi Smartphone Test</span>
+                  <span>Live Production Store</span>
                 </div>
 
                 <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', color: 'var(--brand-green-deep)', marginBottom: '0.4rem' }}>
                   Scan on Phone Camera Now
                 </h3>
                 <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
-                  Points to your live development server: <strong>http://192.168.1.5:3000</strong>
+                  Live Store URL: <strong>https://natural-care-skin-products.vercel.app</strong>
                 </p>
 
                 <div style={{
@@ -1224,11 +1224,11 @@ export default function AdminPage({
                   margin: '0 auto 1.5rem auto',
                   boxShadow: '0 8px 24px rgba(0,0,0,0.06)'
                 }}>
-                  <img src="/images/qr-code-local.png" alt="Local Wi-Fi QR Code" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                  <img src="/images/qr-code.png" alt="Live Store QR Code" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                 </div>
 
                 <p style={{ fontSize: '0.8rem', color: 'var(--brand-okra)', fontWeight: 600 }}>
-                  📱 Tip: Connect your phone to the same Wi-Fi network and scan using your normal camera app.
+                  📱 Tip: Anyone in the world can scan this with their phone camera to open the store.
                 </p>
               </div>
             </div>

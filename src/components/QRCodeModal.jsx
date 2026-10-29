@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import { X, QrCode, Download, Smartphone, Package, Copy, Check, ExternalLink } from 'lucide-react';
+import { X, QrCode, Download, Smartphone, Package, Copy, Check, ExternalLink, Sparkles } from 'lucide-react';
 
 export default function QRCodeModal({ isOpen, onClose }) {
-  const [activeTab, setActiveTab] = useState('local'); // 'local' | 'production'
   const [copied, setCopied] = useState(false);
 
   if (!isOpen) return null;
 
-  const localUrl = 'http://192.168.1.5:3000';
-  const prodUrl = 'https://natural-care-skin-products.vercel.app';
+  // Uses current origin if on live domain, otherwise defaults to production Vercel URL
+  const prodUrl = typeof window !== 'undefined' && window.location.origin.includes('vercel.app')
+    ? window.location.origin
+    : 'https://natural-care-skin-products.vercel.app';
 
-  const currentUrl = activeTab === 'local' ? localUrl : prodUrl;
-  const currentQrImage = activeTab === 'local' ? '/images/qr-code-local.png' : '/images/qr-code.png';
+  const currentQrImage = '/images/qr-code.png';
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(currentUrl);
+    navigator.clipboard.writeText(prodUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -38,7 +38,7 @@ export default function QRCodeModal({ isOpen, onClose }) {
       <div style={{
         background: '#FAF9F5',
         borderRadius: '28px',
-        maxWidth: '520px',
+        maxWidth: '500px',
         width: '100%',
         padding: '2.5rem 2rem',
         position: 'relative',
@@ -69,86 +69,30 @@ export default function QRCodeModal({ isOpen, onClose }) {
           <X size={20} />
         </button>
 
-        {/* Header */}
+        {/* Header Pill */}
         <div style={{
           display: 'inline-flex',
           alignItems: 'center',
           gap: '0.4rem',
           background: 'var(--brand-green-deep)',
           color: '#FFFFFF',
-          padding: '0.35rem 0.85rem',
+          padding: '0.35rem 0.9rem',
           borderRadius: '999px',
           fontSize: '0.75rem',
           fontWeight: 700,
-          marginBottom: '1rem'
+          marginBottom: '1rem',
+          letterSpacing: '0.04em'
         }}>
-          <QrCode size={14} />
-          <span>Scan & Experience</span>
+          <Sparkles size={13} style={{ color: 'var(--brand-okra)' }} />
+          <span>NATURAL CARE • SCAN & SHOP</span>
         </div>
 
-        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', color: 'var(--brand-green-deep)', marginBottom: '0.5rem' }}>
+        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.9rem', color: 'var(--brand-green-deep)', marginBottom: '0.4rem' }}>
           Scan to Access Store
         </h2>
         <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-          Open your smartphone camera and point it at the code to access our Okra Skincare store instantly on your mobile screen.
+          Point your smartphone camera at the QR code below to explore and purchase on mobile instantly.
         </p>
-
-        {/* Tab Switcher */}
-        <div style={{
-          display: 'flex',
-          background: 'var(--bg-secondary)',
-          padding: '0.3rem',
-          borderRadius: '999px',
-          marginBottom: '1.5rem',
-          border: '1px solid var(--border-light)'
-        }}>
-          <button
-            onClick={() => setActiveTab('local')}
-            style={{
-              flex: 1,
-              padding: '0.6rem 0.8rem',
-              borderRadius: '999px',
-              fontSize: '0.82rem',
-              fontWeight: 700,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.4rem',
-              border: 'none',
-              cursor: 'pointer',
-              background: activeTab === 'local' ? '#FFFFFF' : 'transparent',
-              color: activeTab === 'local' ? 'var(--brand-green-deep)' : 'var(--text-muted)',
-              boxShadow: activeTab === 'local' ? '0 2px 8px rgba(0,0,0,0.08)' : 'none',
-              transition: 'all 0.2s'
-            }}
-          >
-            <Smartphone size={15} />
-            <span>Scan on Phone Now</span>
-          </button>
-          <button
-            onClick={() => setActiveTab('production')}
-            style={{
-              flex: 1,
-              padding: '0.6rem 0.8rem',
-              borderRadius: '999px',
-              fontSize: '0.82rem',
-              fontWeight: 700,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.4rem',
-              border: 'none',
-              cursor: 'pointer',
-              background: activeTab === 'production' ? '#FFFFFF' : 'transparent',
-              color: activeTab === 'production' ? 'var(--brand-green-deep)' : 'var(--text-muted)',
-              boxShadow: activeTab === 'production' ? '0 2px 8px rgba(0,0,0,0.08)' : 'none',
-              transition: 'all 0.2s'
-            }}
-          >
-            <Package size={15} />
-            <span>Packaging & Print</span>
-          </button>
-        </div>
 
         {/* QR Code Graphic Frame */}
         <div style={{
@@ -167,7 +111,7 @@ export default function QRCodeModal({ isOpen, onClose }) {
         }}>
           <img 
             src={currentQrImage} 
-            alt="Website QR Code" 
+            alt="Natural Care Store QR Code" 
             style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
           />
         </div>
@@ -184,25 +128,36 @@ export default function QRCodeModal({ isOpen, onClose }) {
           marginBottom: '1.5rem',
           border: '1px solid var(--border-light)'
         }}>
-          <span style={{ color: 'var(--brand-green-deep)', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '340px' }}>
-            {currentUrl}
+          <span style={{ color: 'var(--brand-green-deep)', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '320px' }}>
+            {prodUrl}
           </span>
-          <button
-            onClick={handleCopy}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.3rem',
-              background: 'none',
-              border: 'none',
-              color: copied ? 'var(--brand-green-accent)' : 'var(--text-secondary)',
-              fontWeight: 700,
-              cursor: 'pointer'
-            }}
-          >
-            {copied ? <Check size={15} /> : <Copy size={15} />}
-            <span>{copied ? 'Copied' : 'Copy'}</span>
-          </button>
+          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            <button
+              onClick={handleCopy}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.3rem',
+                background: 'none',
+                border: 'none',
+                color: copied ? 'var(--brand-green-accent)' : 'var(--text-secondary)',
+                fontWeight: 700,
+                cursor: 'pointer'
+              }}
+            >
+              {copied ? <Check size={15} /> : <Copy size={15} />}
+              <span>{copied ? 'Copied' : 'Copy'}</span>
+            </button>
+            <a
+              href={prodUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'var(--text-secondary)', display: 'flex', alignItems: 'center' }}
+              title="Open website"
+            >
+              <ExternalLink size={15} />
+            </a>
+          </div>
         </div>
 
         {/* Download Buttons for Packaging */}
