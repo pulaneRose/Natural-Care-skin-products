@@ -1145,7 +1145,7 @@ export default function AdminPage({
                   Main Website QR Code
                 </h3>
                 <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
-                  Points to: <strong>https://naturalcare-okramucin.com</strong>
+                  Points to: <strong>https://natural-care-skin-products.vercel.app</strong>
                 </p>
 
                 <div style={{

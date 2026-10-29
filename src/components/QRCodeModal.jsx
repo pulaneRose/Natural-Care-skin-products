@@ -8,7 +8,7 @@ export default function QRCodeModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const localUrl = 'http://192.168.1.5:3000';
-  const prodUrl = 'https://naturalcare-okramucin.com';
+  const prodUrl = 'https://natural-care-skin-products.vercel.app';
 
   const currentUrl = activeTab === 'local' ? localUrl : prodUrl;
   const currentQrImage = activeTab === 'local' ? '/images/qr-code-local.png' : '/images/qr-code.png';

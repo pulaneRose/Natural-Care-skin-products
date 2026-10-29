@@ -12,8 +12,7 @@ if (!fs.existsSync(outputDir)) {
 }
 
 // 1. Live Production Website QR code (for packaging & customer distribution)
-// You can change this to your exact live domain once deployed!
-const websiteUrl = 'https://naturalcare-okramucin.com';
+const websiteUrl = 'https://natural-care-skin-products.vercel.app';
 
 // 2. Local network testing URL (for scanning on your phone right now on Wi-Fi!)
 const localWifiUrl = 'http://192.168.1.5:3000';
