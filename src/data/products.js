@@ -384,5 +384,76 @@ export const products = [
     ],
     availability: "Future Collection",
     placeholderTheme: "sage"
+  },
+  {
+    id: "prod-009",
+    name: "Herbal Bath Scrub (Rice • Oats • Aloe Vera)",
+    subtitle: "Exfoliate • Refresh • Soften",
+    brand: "Natural Care",
+    type: "Body Scrub",
+    category: "Body & Exfoliation",
+    price: 399,
+    stock: 0,
+    sku: "HERBAL-SCRUB-09",
+    image: "/images/products/herbal-bath-scrub-duo.jpg",
+    gallery: [
+      "/images/products/herbal-bath-scrub-duo.jpg",
+      "/images/products/herbal-bath-scrub-jar.jpg"
+    ],
+    sizes: ["100 g"],
+    rating: 4.95,
+    reviewCount: 31,
+    isMainProduct: false,
+    isPurchasable: false,
+    isFutureCollection: true,
+    netWeight: "100 g",
+    shortDescription: "Formulated with Rice, Oats, and Aloe Vera to gently exfoliate dead skin cells, deeply cleanse, and leave skin soft and glowing.",
+    description: "Part of our upcoming Natural Care Future Collection. Herbal Bath Scrub combines natural Rice powder, soothing Colloidal Oatmeal, and cooling Aloe Vera. Enriched with traditional Turmeric and Sandalwood, this gentle body polish lifts away dead cells, unclogs pores, and restores a velvety, refreshed radiance to your skin without microplastics or irritation.",
+    keyBenefitsDetailed: [
+      { title: "Gentle Exfoliation", desc: "Removes dead surface skin cells with natural botanical grains" },
+      { title: "Deep Cleansing", desc: "Cleanses, clarifies, and purifies pores thoroughly" },
+      { title: "Soothes & Nourishes", desc: "Enriched with Colloidal Oatmeal and Aloe Vera to prevent dryness" },
+      { title: "Smooth & Refreshed Skin", desc: "Delivers a velvety-soft, healthy, radiant glow" },
+      { title: "Suitable for All Skin Types", desc: "Non-abrasive formula gentle enough for delicate skin" }
+    ],
+    benefits: [
+      "Gentle Exfoliation: Removes dead skin cells",
+      "Deep Cleansing: Cleanses and purifies skin",
+      "Soothes & Nourishes: With natural botanicals",
+      "Smooth & Refreshed Skin: For a healthy, glowing feel",
+      "Suitable for all skin types"
+    ],
+    standards: ["100% Plant Grains", "Microplastic Free", "Cruelty Free", "Paraben Free"],
+    majorIngredient: {
+      name: "Natural Rice, Oats & Aloe Vera Complex",
+      image: "/images/products/herbal-bath-scrub-duo.jpg",
+      role: "Gentle Botanical Exfoliation & Deep Moisture Comfort",
+      tag: "Major Herbal Trio",
+      badge: "🌾 Rice • Oats • Aloe Vera"
+    },
+    ingredientImages: [
+      { name: "Rice & Oats", image: "/images/products/herbal-bath-scrub-jar.jpg", role: "Gentle Exfoliating Polishing Grains", isMajor: true },
+      { name: "Aloe Vera", image: "/images/ingredients/ingredient-okra.jpg", role: "Deep Soothing & Cooling Hydration", isMajor: false },
+      { name: "Turmeric & Sandalwood", image: "/images/ingredients/ingredient-vitamin-c.jpg", role: "Purifying Glow & Skin Radiance", isMajor: false }
+    ],
+    ingredientsList: [
+      { name: "Finely Milled Rice Powder", explanation: "Gentle physical exfoliating particles that slough off dull dead skin and boost radiance." },
+      { name: "Colloidal Oats (Avena Sativa)", explanation: "Calms sensitivity, cushions the skin barrier, and imparts silky smoothness." },
+      { name: "Pure Aloe Vera Extract", explanation: "Provides an instant cooling boost and replenishes deep hydration during exfoliation." },
+      { name: "Wild Turmeric & Sandalwood", explanation: "Ayurvedic botanicals known to purify pores, calm redness, and enhance natural skin tone." },
+      { name: "Botanical Glycerin", explanation: "Natural humectant ensuring skin stays hydrated and supple after rinsing." }
+    ],
+    howToUse: "1. Wet skin thoroughly in shower or bath.\n2. Scoop a generous amount of Herbal Bath Scrub.\n3. Gently massage in upward circular motions across body, focusing on dry areas (elbows, knees, heels).\n4. Rinse well with warm water. Use 2–3 times weekly.",
+    caution: "For external body use only. Avoid contact with eyes and broken skin. Discontinue if irritation occurs. Store in a cool, dry place.",
+    marketedBy: "Natural Care, Ludhiana, Punjab, India",
+    concerns: ["Exfoliation", "Rough Skin", "Dull Complexion", "Body Care"],
+    skinTypes: ["All Skin Types", "Dry Skin", "Rough Texture"],
+    keyIngredients: ["Rice Powder", "Colloidal Oats", "Aloe Vera", "Turmeric"],
+    faq: [
+      { q: "Can I use Herbal Bath Scrub on sensitive skin?", a: "Yes, the scrub uses finely ground natural rice and calming colloidal oatmeal instead of harsh salt or plastic microbeads, making it gentle on delicate skin." },
+      { q: "How often should I use it?", a: "We recommend using it 2 to 3 times a week during your shower routine for optimal smoothness and glow." }
+    ],
+    availability: "Future Collection",
+    placeholderTheme: "beige"
   }
 ];

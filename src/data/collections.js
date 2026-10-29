@@ -46,11 +46,11 @@ export const collections = [
   },
   {
     id: "col-future",
-    title: "Future Collection & Herbal Relief",
-    subtitle: "Upcoming botanical innovations including Papaya Herbal Hydrogel.",
-    description: "Preview our next generation of plant-powered formulations, including our soothing, cooling Herbal Hydrogel enriched with natural Papaya Extract, Menthol, and Camphor.",
+    title: "Future Collection: Herbal & Botanical Innovations",
+    subtitle: "Upcoming botanical releases including Herbal Bath Scrub & Papaya Hydrogel.",
+    description: "Preview our next generation of plant-powered formulations, featuring our soothing Papaya Herbal Hydrogel and gentle Rice, Oats & Aloe Vera Herbal Bath Scrub.",
     concern: "Body Relief",
     theme: "beige",
-    productIds: ["prod-008", "prod-002", "prod-003", "prod-004", "prod-005", "prod-006", "prod-007"]
+    productIds: ["prod-008", "prod-009", "prod-002", "prod-003", "prod-004", "prod-005", "prod-006", "prod-007"]
   }
 ];
