@@ -25,13 +25,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://skincare:rose1234@cluster0.izmsupi.mongodb.net/skincare-brand?retryWrites=true&w=majority&appName=Cluster0';
+const MONGODB_URI = process.env.MONGODB_URI;
 
 let isMongoConnected = false;
 let mongoConnectionPromise = null;
 
 // Connect / Cache MongoDB Connection for Serverless Execution
 async function connectToMongo() {
+  if (!MONGODB_URI) {
+    return null;
+  }
   if (mongoose.connection.readyState === 1) {
     isMongoConnected = true;
     return mongoose.connection;
