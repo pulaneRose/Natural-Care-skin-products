@@ -313,5 +313,76 @@ export const products = [
     ],
     availability: "Future Collection",
     placeholderTheme: "rose"
+  },
+  {
+    id: "prod-008",
+    name: "Herbal Hydrogel (Papaya Relief Gel)",
+    subtitle: "Soothing • Cooling • Natural Relief",
+    brand: "Natural Care",
+    type: "Hydrogel",
+    category: "Body & Relief",
+    price: 349,
+    stock: 0,
+    sku: "HERBAL-HYDRO-08",
+    image: "/images/products/herbal-hydrogel-jar.jpg",
+    gallery: [
+      "/images/products/herbal-hydrogel-jar.jpg",
+      "/images/products/herbal-hydrogel-lid.jpg"
+    ],
+    sizes: ["80 g"],
+    rating: 4.9,
+    reviewCount: 26,
+    isMainProduct: false,
+    isPurchasable: false,
+    isFutureCollection: true,
+    netWeight: "80 g",
+    shortDescription: "Enriched with natural Papaya Extract, Menthol, and Camphor. Soothes tired muscles and provides an instant cooling effect.",
+    description: "Part of our upcoming Natural Care Future Collection. Herbal Hydrogel is an intensely cooling, non-sticky, fast-absorbing botanical hydrogel enriched with natural Papaya Extract, Menthol, and Camphor. Formulated to help soothe and relax tired muscles, provide a cooling sensation, and support relief from mild body discomfort.",
+    keyBenefitsDetailed: [
+      { title: "Soothes & Relaxes", desc: "Helps to soothe and relax tired muscles" },
+      { title: "Cooling & Refreshing", desc: "Provides an immediate cooling and refreshing sensation" },
+      { title: "Mild Body Discomfort Relief", desc: "Supports relief from everyday body discomfort and fatigue" },
+      { title: "Natural Papaya Enriched", desc: "Infused with skin-nurturing natural papaya extract" },
+      { title: "Non-Sticky, Fast Absorbing", desc: "Ultra-clean gel that absorbs quickly without greasiness" }
+    ],
+    benefits: [
+      "Helps to soothe and relax tired muscles",
+      "Provides a cooling and refreshing effect",
+      "Supports relief from mild body discomfort",
+      "Enriched with natural papaya extract",
+      "Non-sticky, fast absorbing gel"
+    ],
+    standards: ["Herbal Active", "Non-Sticky Formula", "Cruelty Free", "Fast Absorbing"],
+    majorIngredient: {
+      name: "Natural Papaya Extract (Carica Papaya)",
+      image: "/images/products/herbal-hydrogel-lid.jpg",
+      role: "Skin Nourishing Enzymes & Botanical Soothing",
+      tag: "Major Herbal Active",
+      badge: "🌿 Papaya & Cooling Menthol"
+    },
+    ingredientImages: [
+      { name: "Papaya Extract", image: "/images/products/herbal-hydrogel-lid.jpg", role: "Enzyme Relief & Skin Nurturing", isMajor: true },
+      { name: "Menthol & Camphor", image: "/images/ingredients/ingredient-okra.jpg", role: "Crisp Cooling & Muscle Relaxation", isMajor: false },
+      { name: "Botanical Glycerin", image: "/images/ingredients/ingredient-hyaluronic-acid.jpg", role: "Hydration Balance", isMajor: false }
+    ],
+    ingredientsList: [
+      { name: "Papaya Extract", explanation: "Antioxidant-dense herbal extract that enriches and calms the skin." },
+      { name: "Menthol", explanation: "Delivers an immediate cooling and refreshing sensation to tired muscles." },
+      { name: "Camphor", explanation: "Herbal compound traditionally known to relieve muscle tightness and fatigue." },
+      { name: "Glycerin & Propylene Glycol", explanation: "Lightweight humectants that keep skin conditioned and soft." },
+      { name: "Carbopol 940 & Purified Water", explanation: "Creates the crystal-clear, non-sticky fast-absorbing gel base." }
+    ],
+    howToUse: "1. Clean and dry the affected area.\n2. Take a small amount of herbal hydrogel.\n3. Apply gently and massage until absorbed.\n4. Use 2–3 times daily or as directed.",
+    caution: "For external use only. Avoid contact with eyes, mouth and open wounds. Discontinue use if irritation occurs. Keep out of reach of children. Store in a cool, dry place away from direct sunlight.",
+    marketedBy: "Natural Care, Ludhiana, Punjab, India",
+    concerns: ["Body Relief", "Tired Muscles", "Cooling Sensation", "Daily Recovery"],
+    skinTypes: ["All Skin Types", "Tired Muscles", "Post-Workout"],
+    keyIngredients: ["Papaya Extract", "Menthol", "Camphor", "Glycerin"],
+    faq: [
+      { q: "What are the primary benefits of Herbal Hydrogel?", a: "It helps soothe and relax tired muscles, delivers a cooling, refreshing sensation, and supports relief from mild body discomfort." },
+      { q: "Does Herbal Hydrogel leave any greasy residue?", a: "No, it is specifically formulated as a non-sticky, fast-absorbing hydrogel that disappears cleanly into skin." }
+    ],
+    availability: "Future Collection",
+    placeholderTheme: "sage"
   }
 ];

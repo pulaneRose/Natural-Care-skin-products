@@ -120,13 +120,7 @@ export default function ProductDetailPage({
         )}
 
         {/* TOP SECTION: IMAGE + DETAILS */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1.05fr 1fr',
-          gap: '3.5rem',
-          alignItems: 'start',
-          marginBottom: '5rem'
-        }}>
+        <div className="pdp-main-grid">
           {/* LEFT: Product Photography Gallery */}
           <div>
             <div style={{
@@ -597,14 +591,23 @@ export default function ProductDetailPage({
                   display: 'flex',
                   alignItems: 'center',
                   gap: '1.5rem',
-                  border: '1.5px solid var(--brand-okra)'
+                  border: '1.5px solid var(--brand-okra)',
+                  flexWrap: 'wrap'
                 }}>
-                  <img src="/images/ingredients/ingredient-okra.jpg" alt="Okra Extract" style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', border: '3px solid #FFF' }} />
-                  <div>
-                    <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, color: 'var(--brand-okra)' }}>Major Hero Ingredient</span>
-                    <h4 style={{ fontSize: '1.25rem', color: 'var(--brand-green-deep)', marginBottom: '0.3rem' }}>Natural Okra Mucin (Abelmoschus Esculentus)</h4>
+                  <img 
+                    src={product.majorIngredient?.image || "/images/ingredients/ingredient-okra.jpg"} 
+                    alt={product.majorIngredient?.name || "Major Ingredient"} 
+                    style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', border: '3px solid #FFF', flexShrink: 0 }} 
+                  />
+                  <div style={{ flex: 1, minWidth: '220px' }}>
+                    <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, color: 'var(--brand-okra)' }}>
+                      {product.majorIngredient?.tag || "Major Hero Ingredient"}
+                    </span>
+                    <h4 style={{ fontSize: '1.25rem', color: 'var(--brand-green-deep)', marginBottom: '0.3rem' }}>
+                      {product.majorIngredient?.name || "Natural Okra Mucin (Abelmoschus Esculentus)"}
+                    </h4>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                      Pure natural plant mucilage rich in water-binding polysaccharides that deeply hydrate, soothe irritation, and promote a radiant, glass-like complexion.
+                      {product.majorIngredient?.role || "Pure natural plant mucilage rich in water-binding polysaccharides that deeply hydrate, soothe irritation, and promote a radiant, glass-like complexion."}
                     </p>
                   </div>
                 </div>
@@ -659,7 +662,17 @@ export default function ProductDetailPage({
                 <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', color: 'var(--brand-green-deep)', marginBottom: '1rem', fontWeight: 600 }}>
                   Application Instructions
                 </h3>
-                <p style={{ fontSize: '1rem', marginBottom: '1.5rem' }}>{product.howToUse}</p>
+                <p style={{ fontSize: '1rem', marginBottom: '1.5rem', whiteSpace: 'pre-line' }}>{product.howToUse}</p>
+                {product.caution && (
+                  <div style={{ marginTop: '1rem', marginBottom: '1.25rem', background: '#FFF7ED', border: '1px solid #FED7AA', padding: '1rem 1.25rem', borderRadius: '14px', fontSize: '0.84rem', color: '#9A3412', lineHeight: 1.5 }}>
+                    <strong>⚠️ Caution:</strong> {product.caution}
+                  </div>
+                )}
+                {product.marketedBy && (
+                  <div style={{ marginBottom: '1.25rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                    <strong>Marketed By:</strong> {product.marketedBy}
+                  </div>
+                )}
                 <div style={{ background: 'var(--bg-secondary)', padding: '1.25rem 1.5rem', borderRadius: '16px', fontSize: '0.88rem' }}>
                   <strong style={{ color: 'var(--brand-green-deep)' }}>Expert Tip:</strong> Warm 2–3 drops between fingertips and gently press into slightly damp skin. Pat gently until completely absorbed.
                 </div>

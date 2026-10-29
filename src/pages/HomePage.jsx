@@ -47,12 +47,7 @@ export default function HomePage({
         position: 'relative',
         overflow: 'hidden'
       }}>
-        <div className="container" style={{
-          display: 'grid',
-          gridTemplateColumns: '1.1fr 1fr',
-          gap: '4rem',
-          alignItems: 'center'
-        }}>
+        <div className="container hero-grid-layout">
           {/* Hero Content */}
           <div>
             <div style={{
@@ -95,7 +90,7 @@ export default function HomePage({
               With Natural Okra Mucin for healthy, glowing skin. High-potency botanical polysaccharides cushion and repair the skin barrier, delivering deep hydration and silky smoothness with zero stickiness.
             </p>
 
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div className="hero-cta-buttons" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <button 
                 onClick={() => {
                   onSelectProduct(products[0]);
@@ -369,12 +364,7 @@ export default function HomePage({
 
       {/* BRAND STORY BRIEF */}
       <section className="section-padding" style={{ background: 'var(--brand-green-light)' }}>
-        <div className="container" style={{
-          display: 'grid',
-          gridTemplateColumns: '1.1fr 1fr',
-          gap: '4rem',
-          alignItems: 'center'
-        }}>
+        <div className="container hero-grid-layout">
           <div>
             <span className="eyebrow" style={{ color: 'var(--brand-green-accent)', fontWeight: 700 }}>Our Botanical Philosophy</span>
             <h2 className="title-section" style={{ marginBottom: '1.25rem', color: 'var(--brand-green-deep)' }}>

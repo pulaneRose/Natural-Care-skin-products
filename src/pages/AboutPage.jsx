@@ -78,13 +78,7 @@ export default function AboutPage() {
         </div>
 
         {/* SECTION: OUR STORY */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '4rem',
-          alignItems: 'center',
-          marginBottom: '5rem'
-        }}>
+        <div className="about-split-grid">
           <div>
             <span className="eyebrow">Pillar One</span>
             <h2 className="title-section" style={{ marginBottom: '1.25rem' }}>Our Story</h2>

@@ -250,6 +250,125 @@ h1, h2, h3, h4, h5, .font-serif {
   }
 }
 
+/* ==========================================================================
+   Responsive Layout Utilities & Mobile Phone Alignment
+   ========================================================================== */
+.hero-grid-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.philosophy-grid-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.contact-responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.pdp-main-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.shop-main-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2.5rem;
+}
+
+.cart-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.checkout-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.about-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Mobile Alignment (Screens <= 860px) */
+@media (max-width: 860px) {
+  .hero-grid-layout {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+    text-align: center;
+  }
+  .hero-grid-layout .hero-cta-buttons {
+    justify-content: center;
+  }
+  .philosophy-grid-layout {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .contact-responsive-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .pdp-main-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .shop-main-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .cart-main-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .checkout-main-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .about-split-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* Small Smartphone Optimization (Screens <= 520px) */
+@media (max-width: 520px) {
+  html {
+    font-size: 15px;
+  }
+  .container {
+    padding: 0 1rem !important;
+  }
+  .section-padding {
+    padding: 2.75rem 0 !important;
+  }
+  .grid-4, .grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .btn {
+    padding: 0.8rem 1.4rem;
+    font-size: 0.85rem;
+  }
+}
+
 /* Custom Image Placeholder Graphic */
 .placeholder-container {
   width: 100%;

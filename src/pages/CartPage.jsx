@@ -56,7 +56,7 @@ export default function CartPage({
 
         <h1 className="title-section" style={{ fontSize: '2.75rem', marginBottom: '2.5rem' }}>Your Shopping Bag</h1>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: '3rem', alignItems: 'start' }}>
+        <div className="cart-main-grid">
           {/* CART ITEMS TABLE */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             {cartItems.map((item) => (

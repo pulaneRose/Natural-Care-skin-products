@@ -179,9 +179,10 @@ export default function Footer({ setActivePage, onOpenQr, onSubscribeNewsletter 
           <p style={{ maxWidth: '800px', lineHeight: 1.5 }}>
             <strong>Disclaimer:</strong> SkinCare Brand products are developed in partnership with licensed pharmaceutical formulators. Information provided on this website is for educational and product preview purposes. No medical claims are intended.
           </p>
-          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <span>© 2026 SkinCare Brand. All rights reserved.</span>
-            <span>Made with Care & Transparency</span>
+          <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
+            <span>© 2026 <strong>Natural Care</strong>. All rights reserved.</span>
+            <span>🌿 Founder: <strong>Pardeep Kumar</strong> (<a href="mailto:par455p123@gmail.com" style={{ textDecoration: 'underline', color: 'var(--brand-green-deep)' }}>par455p123@gmail.com</a>)</span>
+            <span>💻 Website Creator: <strong>Pulane Masenkane</strong> (<a href="mailto:masenkanepulane@gmail.com" style={{ textDecoration: 'underline', color: 'var(--brand-green-deep)' }}>masenkanepulane@gmail.com</a>)</span>
           </div>
         </div>
       </div>

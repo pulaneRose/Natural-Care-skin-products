@@ -179,7 +179,7 @@ export default function ShopPage({
         </div>
 
         {/* MAIN LAYOUT: FILTERS SIDEBAR + GRID */}
-        <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '2.5rem' }}>
+        <div className="shop-main-grid">
           {/* FILTERS SIDEBAR */}
           <div style={{
             background: 'var(--bg-card)',

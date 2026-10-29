@@ -47,7 +47,7 @@ export default function CheckoutPage({
         <h1 className="title-section" style={{ fontSize: '2.5rem', marginBottom: '2.5rem' }}>Secure Checkout</h1>
 
         {/* CHECKOUT FORM & SIDEBAR */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: '3.5rem', alignItems: 'start' }}>
+        <div className="checkout-main-grid">
           {/* FORM */}
           <form onSubmit={handleSubmitOrder} style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
             {/* Contact Info */}

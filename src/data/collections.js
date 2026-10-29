@@ -43,5 +43,14 @@ export const collections = [
     concern: "Oil Control",
     theme: "sage",
     productIds: ["prod-004", "prod-005", "prod-001"]
+  },
+  {
+    id: "col-future",
+    title: "Future Collection & Herbal Relief",
+    subtitle: "Upcoming botanical innovations including Papaya Herbal Hydrogel.",
+    description: "Preview our next generation of plant-powered formulations, including our soothing, cooling Herbal Hydrogel enriched with natural Papaya Extract, Menthol, and Camphor.",
+    concern: "Body Relief",
+    theme: "beige",
+    productIds: ["prod-008", "prod-002", "prod-003", "prod-004", "prod-005", "prod-006", "prod-007"]
   }
 ];
