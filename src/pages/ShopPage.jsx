@@ -22,7 +22,7 @@ export default function ShopPage({
   const productTypes = ['All', 'Serum', 'Face Serum', 'Hydrogel', 'Body Scrub', 'Moisturizer', 'Cleanser', 'Toner / Essence', 'Face Oil'];
   const skinConcerns = ['All', 'Hydration', 'Radiance', 'Texture', 'Oil Control', 'Barrier Care', 'Body Relief', 'Exfoliation', 'Daily Essentials'];
   const skinTypes = ['All', 'All Skin Types', 'Dry', 'Sensitive', 'Combination', 'Oily', 'Normal'];
-  const ingredientsList = ['All', 'Okra Extract (Okra Mucilage)', 'Okra Seed Oil', 'Papaya Extract', 'Rice Powder', 'Colloidal Oats', 'Aloe Vera', 'Niacinamide', 'Hyaluronic Acid', 'Vitamin C', 'Ceramides', 'Zinc PCA'];
+  const ingredientsList = ['All', 'Okra Extract (Okra Mucilage)', 'Natural Okra Mucin', 'Galacturanic Acid', 'Okra Seed Oil', 'Papaya Extract', 'Rice Powder', 'Colloidal Oats', 'Aloe Vera', 'Niacinamide', 'Hyaluronic Acid', 'Vitamin C', 'Ceramides', 'Zinc PCA'];
 
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {

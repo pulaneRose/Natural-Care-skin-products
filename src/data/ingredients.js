@@ -33,6 +33,22 @@ export const ingredients = [
     productsContaining: ["prod-001", "prod-003", "prod-005"]
   },
   {
+    id: "ing-galacturanic-acid",
+    name: "Galacturanic Acid",
+    type: "Natural Okra Botanical Polysaccharide",
+    image: "/images/ingredients/ingredient-hyaluronic-acid.jpg",
+    shortDescription: "A vital polysaccharide building block of natural Okra mucilage that deeply binds moisture and calms the skin.",
+    description: "Galacturanic Acid is a primary active polysaccharide constituent of cold-pressed okra mucilage. It provides profound moisture retention, antioxidant cushioning, and barrier smoothing without any heaviness or stickiness.",
+    function: "Intense Moisture Retention & Skin Cushioning",
+    roleInFormulation: "Pairs with natural okra mucin to create a breathable, long-lasting botanical hydration shield.",
+    benefits: [
+      "Attracts and binds deep surface moisture",
+      "Reinforces cellular hydration and supple skin texture",
+      "Soothes redness and enhances natural barrier repair"
+    ],
+    productsContaining: ["prod-001"]
+  },
+  {
     id: "ing-hyaluronic-acid",
     name: "Hyaluronic Acid",
     type: "Humectant Moisture Magnet",
@@ -46,7 +62,7 @@ export const ingredients = [
       "Encourages a plump, hydrated skin feel",
       "Lightweight feel without clogging pores"
     ],
-    productsContaining: ["prod-001", "prod-002", "prod-004", "prod-005"]
+    productsContaining: ["prod-002", "prod-004", "prod-005"]
   },
   {
     id: "ing-ceramides",

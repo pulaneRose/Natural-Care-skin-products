@@ -6,7 +6,7 @@ export const products = [
     brand: "Natural Care",
     type: "Face Serum",
     category: "Serums",
-    price: 1299,
+    price: 300,
     stock: 50,
     sku: "OKRA-MUCIN-01",
     image: "/images/products/okra-mucin-serum-main.png",
@@ -49,19 +49,19 @@ export const products = [
     ingredientImages: [
       { name: "Okra Mucin", image: "/images/ingredients/ingredient-okra.jpg", role: "Hydrate, Soothe, Smoothen", isMajor: true },
       { name: "Niacinamide", image: "/images/ingredients/ingredient-niacinamide.jpg", role: "Tone & Texture", isMajor: false },
-      { name: "Hyaluronic Acid", image: "/images/ingredients/ingredient-hyaluronic-acid.jpg", role: "Moisture Multiplier", isMajor: false },
+      { name: "Galacturanic Acid", image: "/images/ingredients/ingredient-hyaluronic-acid.jpg", role: "Moisture Multiplier", isMajor: false },
       { name: "Vitamin C", image: "/images/ingredients/ingredient-vitamin-c.jpg", role: "Radiance Defense", isMajor: false }
     ],
     ingredientsList: [
       { name: "Natural Okra Mucin Extract", explanation: "Pure natural plant mucilage rich in water-binding polysaccharides that hydrate, soothe, and protect." },
-      { name: "Hyaluronic Acid", explanation: "Multi-weight humectant that binds moisture deep into surface skin layers." },
+      { name: "Galacturanic Acid", explanation: "Natural polysaccharide core component that binds moisture deep into surface skin layers for lasting hydration." },
       { name: "Niacinamide (Vitamin B3)", explanation: "Supports skin tone clarity and refines pores." },
       { name: "Botanical Glycerin", explanation: "Locks in continuous hydration with a non-sticky finish." }
     ],
     howToUse: "Dispense 2–3 drops onto clean fingertips. Gently press and smooth over face and neck morning and evening. Allow to absorb before applying moisturizer.",
     concerns: ["Hydration", "Radiance", "Texture", "Barrier Care", "Daily Essentials"],
     skinTypes: ["All Skin Types", "Sensitive", "Dry", "Combination", "Oily"],
-    keyIngredients: ["Natural Okra Mucin", "Hyaluronic Acid", "Niacinamide"],
+    keyIngredients: ["Natural Okra Mucin", "Galacturanic Acid", "Niacinamide"],
     faq: [
       { q: "Is Okra Mucin suitable for sensitive skin?", a: "Yes, natural Okra mucin is inherently calming and gentle, helping to soothe redness and irritation." },
       { q: "Does it feel sticky on the face?", a: "Not at all. The serum is specially formulated to be lightweight, silky, and non-sticky, absorbing rapidly." }
