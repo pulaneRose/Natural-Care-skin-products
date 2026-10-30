@@ -45,12 +45,21 @@ export const collections = [
     productIds: ["prod-004", "prod-005", "prod-001"]
   },
   {
-    id: "col-future",
-    title: "Future Collection: Herbal & Botanical Innovations",
-    subtitle: "Upcoming botanical releases including Herbal Bath Scrub & Papaya Hydrogel.",
-    description: "Preview our next generation of plant-powered formulations, featuring our soothing Papaya Herbal Hydrogel and gentle Rice, Oats & Aloe Vera Herbal Bath Scrub.",
+    id: "col-herbal",
+    title: "Herbal Body & Wellness Collection",
+    subtitle: "Plant-powered daily relief and exfoliating body care.",
+    description: "Revitalize your body routine with our cooling Papaya Herbal Hydrogel and gentle Rice, Oats & Aloe Vera Herbal Bath Scrub.",
     concern: "Body Relief",
+    theme: "sage",
+    productIds: ["prod-008", "prod-009"]
+  },
+  {
+    id: "col-future",
+    title: "Future Collection Innovations",
+    subtitle: "Upcoming advanced Okra mucin formulations.",
+    description: "Preview our next generation of plant-powered formulations currently in final development.",
+    concern: "Hydration",
     theme: "beige",
-    productIds: ["prod-008", "prod-009", "prod-002", "prod-003", "prod-004", "prod-005", "prod-006", "prod-007"]
+    productIds: ["prod-002", "prod-003", "prod-004", "prod-005", "prod-006", "prod-007"]
   }
 ];

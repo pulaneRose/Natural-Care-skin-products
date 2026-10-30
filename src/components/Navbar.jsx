@@ -77,17 +77,6 @@ export default function Navbar({
               NATURAL CARE
             </span>
           </div>
-          <span style={{ 
-            fontSize: '0.62rem', 
-            textTransform: 'uppercase', 
-            letterSpacing: '0.24em', 
-            color: 'var(--brand-okra)',
-            fontWeight: 700,
-            marginTop: '3px',
-            marginLeft: '1.85rem'
-          }}>
-            Okra Mucin Skincare
-          </span>
         </div>
 
         {/* Desktop Nav Links */}

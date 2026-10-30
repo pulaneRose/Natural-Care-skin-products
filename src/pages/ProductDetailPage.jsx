@@ -295,10 +295,21 @@ export default function ProductDetailPage({
               </span>
             </div>
 
-            {/* Price in INR */}
-            <div style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--brand-green-deep)', marginBottom: '1.25rem' }}>
-              ₹{product.price.toLocaleString('en-IN')} <span style={{ fontSize: '0.95rem', fontWeight: 400, color: 'var(--text-muted)' }}>INR (Inclusive of all taxes)</span>
-            </div>
+            {/* Price in INR / Future Collection Status */}
+            {isPurchasable && product.price ? (
+              <div style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--brand-green-deep)', marginBottom: '1.25rem' }}>
+                ₹{product.price.toLocaleString('en-IN')} <span style={{ fontSize: '0.95rem', fontWeight: 400, color: 'var(--text-muted)' }}>INR (Inclusive of all taxes)</span>
+              </div>
+            ) : (
+              <div style={{ marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#8A651E', background: '#F5EDDC', border: '1px solid #E5C07B', padding: '0.35rem 0.8rem', borderRadius: '999px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  Coming Soon
+                </span>
+                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                  Price to be announced upon release
+                </span>
+              </div>
+            )}
 
             {/* Short Description */}
             <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1.75rem' }}>

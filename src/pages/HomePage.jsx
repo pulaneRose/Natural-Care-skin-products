@@ -99,7 +99,7 @@ export default function HomePage({
                 className="btn btn-primary"
                 style={{ background: 'var(--brand-green-deep)', borderColor: 'var(--brand-green-deep)', color: '#FFF' }}
               >
-                Shop Okra Mucin Serum (₹1,299) <ArrowRight size={16} />
+                Shop Okra Mucin Serum (₹300) <ArrowRight size={16} />
               </button>
               <button 
                 onClick={() => setActivePage('shop')}

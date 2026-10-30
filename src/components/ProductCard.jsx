@@ -59,7 +59,7 @@ export default function ProductCard({
           <Clock size={11} />
           <span>Future Collection</span>
         </div>
-      ) : (
+      ) : product.isMainProduct ? (
         <div 
           style={{
             position: 'absolute',
@@ -82,6 +82,30 @@ export default function ProductCard({
         >
           <span>⭐</span>
           <span>Main Serum</span>
+        </div>
+      ) : (
+        <div 
+          style={{
+            position: 'absolute',
+            top: '1.4rem',
+            left: '1.4rem',
+            zIndex: 10,
+            background: 'var(--brand-green-deep)',
+            color: '#FFFFFF',
+            borderRadius: '999px',
+            padding: '0.28rem 0.75rem',
+            fontSize: '0.66rem',
+            fontWeight: 700,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.35rem',
+            boxShadow: '0 4px 12px rgba(20, 53, 35, 0.25)'
+          }}
+        >
+          <span>🌿</span>
+          <span>In Stock</span>
         </div>
       )}
 
@@ -221,9 +245,15 @@ export default function ProductCard({
           <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: isPurchasable ? 'var(--brand-green-accent)' : '#9E7D3B', fontWeight: 700 }}>
             {product.brand || 'Natural Care'} • {product.type}
           </span>
-          <span style={{ fontWeight: 700, fontSize: '1.05rem', color: isPurchasable ? 'var(--brand-green-deep)' : 'var(--text-muted)' }}>
-            ₹{product.price.toLocaleString('en-IN')}
-          </span>
+          {isPurchasable && product.price ? (
+            <span style={{ fontWeight: 700, fontSize: '1.05rem', color: 'var(--brand-green-deep)' }}>
+              ₹{product.price.toLocaleString('en-IN')}
+            </span>
+          ) : (
+            <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#8A651E', background: '#F5EDDC', padding: '0.15rem 0.55rem', borderRadius: '999px', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+              Coming Soon
+            </span>
+          )}
         </div>
 
         <h3 
@@ -264,7 +294,7 @@ export default function ProductCard({
               Key Actives
             </span>
             <span style={{ fontSize: '0.66rem', fontWeight: 700, color: isPurchasable ? 'var(--brand-okra)' : '#8A651E', background: isPurchasable ? 'var(--brand-okra-light)' : '#F5EDDC', padding: '0.1rem 0.45rem', borderRadius: '999px' }}>
-              {isPurchasable ? '🌿 Hero: Okra Mucin' : 'Future Collection'}
+              {isPurchasable ? (product.majorIngredient?.badge || '🌿 In Stock') : 'Future Collection'}
             </span>
           </div>
 

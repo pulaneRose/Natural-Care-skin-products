@@ -76,7 +76,7 @@ export const products = [
     brand: "Natural Care",
     type: "Serum",
     category: "Serums",
-    price: 2199,
+    price: null,
     stock: 0,
     sku: "OKRA-HYD-02",
     image: "/images/products/okra-deep-hydrating-serum.jpg",
@@ -125,7 +125,7 @@ export const products = [
     brand: "Natural Care",
     type: "Moisturizer",
     category: "Moisturizers",
-    price: 2799,
+    price: null,
     stock: 0,
     sku: "OKRA-BAR-03",
     image: "/images/products/okra-ceramide-barrier-cream.jpg",
@@ -174,7 +174,7 @@ export const products = [
     brand: "Natural Care",
     type: "Cleanser",
     category: "Cleansers",
-    price: 1499,
+    price: null,
     stock: 0,
     sku: "OKRA-CLN-04",
     image: "/images/products/okra-botanical-cleanser.jpg",
@@ -223,7 +223,7 @@ export const products = [
     brand: "Natural Care",
     type: "Toner / Essence",
     category: "Toners",
-    price: 1899,
+    price: null,
     stock: 0,
     sku: "OKRA-TON-05",
     image: "/images/products/okra-refining-essence.jpg",
@@ -272,7 +272,7 @@ export const products = [
     brand: "Natural Care",
     type: "Face Oil",
     category: "Oils",
-    price: 2999,
+    price: null,
     stock: 0,
     sku: "OKRA-OIL-06",
     image: "/images/products/okra-night-elixir.jpg",
@@ -322,7 +322,7 @@ export const products = [
     type: "Hydrogel",
     category: "Body & Relief",
     price: 349,
-    stock: 0,
+    stock: 50,
     sku: "HERBAL-HYDRO-08",
     image: "/images/products/herbal-hydrogel-jar.jpg",
     gallery: [
@@ -333,11 +333,11 @@ export const products = [
     rating: 4.9,
     reviewCount: 26,
     isMainProduct: false,
-    isPurchasable: false,
-    isFutureCollection: true,
+    isPurchasable: true,
+    isFutureCollection: false,
     netWeight: "80 g",
     shortDescription: "Enriched with natural Papaya Extract, Menthol, and Camphor. Soothes tired muscles and provides an instant cooling effect.",
-    description: "Part of our upcoming Natural Care Future Collection. Herbal Hydrogel is an intensely cooling, non-sticky, fast-absorbing botanical hydrogel enriched with natural Papaya Extract, Menthol, and Camphor. Formulated to help soothe and relax tired muscles, provide a cooling sensation, and support relief from mild body discomfort.",
+    description: "Herbal Hydrogel is an intensely cooling, non-sticky, fast-absorbing botanical hydrogel enriched with natural Papaya Extract, Menthol, and Camphor. Formulated to help soothe and relax tired muscles, provide a cooling sensation, and support relief from mild body discomfort.",
     keyBenefitsDetailed: [
       { title: "Soothes & Relaxes", desc: "Helps to soothe and relax tired muscles" },
       { title: "Cooling & Refreshing", desc: "Provides an immediate cooling and refreshing sensation" },
@@ -382,7 +382,7 @@ export const products = [
       { q: "What are the primary benefits of Herbal Hydrogel?", a: "It helps soothe and relax tired muscles, delivers a cooling, refreshing sensation, and supports relief from mild body discomfort." },
       { q: "Does Herbal Hydrogel leave any greasy residue?", a: "No, it is specifically formulated as a non-sticky, fast-absorbing hydrogel that disappears cleanly into skin." }
     ],
-    availability: "Future Collection",
+    availability: "Available Now",
     placeholderTheme: "sage"
   },
   {
@@ -393,7 +393,7 @@ export const products = [
     type: "Body Scrub",
     category: "Body & Exfoliation",
     price: 399,
-    stock: 0,
+    stock: 50,
     sku: "HERBAL-SCRUB-09",
     image: "/images/products/herbal-bath-scrub-duo.jpg",
     gallery: [
@@ -404,11 +404,11 @@ export const products = [
     rating: 4.95,
     reviewCount: 31,
     isMainProduct: false,
-    isPurchasable: false,
-    isFutureCollection: true,
+    isPurchasable: true,
+    isFutureCollection: false,
     netWeight: "100 g",
     shortDescription: "Formulated with Rice, Oats, and Aloe Vera to gently exfoliate dead skin cells, deeply cleanse, and leave skin soft and glowing.",
-    description: "Part of our upcoming Natural Care Future Collection. Herbal Bath Scrub combines natural Rice powder, soothing Colloidal Oatmeal, and cooling Aloe Vera. Enriched with traditional Turmeric and Sandalwood, this gentle body polish lifts away dead cells, unclogs pores, and restores a velvety, refreshed radiance to your skin without microplastics or irritation.",
+    description: "Herbal Bath Scrub combines natural Rice powder, soothing Colloidal Oatmeal, and cooling Aloe Vera. Enriched with traditional Turmeric and Sandalwood, this gentle body polish lifts away dead cells, unclogs pores, and restores a velvety, refreshed radiance to your skin without microplastics or irritation.",
     keyBenefitsDetailed: [
       { title: "Gentle Exfoliation", desc: "Removes dead surface skin cells with natural botanical grains" },
       { title: "Deep Cleansing", desc: "Cleanses, clarifies, and purifies pores thoroughly" },
@@ -453,7 +453,7 @@ export const products = [
       { q: "Can I use Herbal Bath Scrub on sensitive skin?", a: "Yes, the scrub uses finely ground natural rice and calming colloidal oatmeal instead of harsh salt or plastic microbeads, making it gentle on delicate skin." },
       { q: "How often should I use it?", a: "We recommend using it 2 to 3 times a week during your shower routine for optimal smoothness and glow." }
     ],
-    availability: "Future Collection",
+    availability: "Available Now",
     placeholderTheme: "beige"
   }
 ];

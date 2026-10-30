@@ -46,14 +46,14 @@ export default function ShopPage({
       if (selectedIngredient !== 'All' && !p.keyIngredients.includes(selectedIngredient)) {
         return false;
       }
-      // Price
-      if (p.price > maxPrice) {
+      // Price (only filter products that have a price)
+      if (p.price && p.price > maxPrice) {
         return false;
       }
       return true;
     }).sort((a, b) => {
-      if (sortBy === 'price-low') return a.price - b.price;
-      if (sortBy === 'price-high') return b.price - a.price;
+      if (sortBy === 'price-low') return (a.price || 999999) - (b.price || 999999);
+      if (sortBy === 'price-high') return (b.price || 0) - (a.price || 0);
       if (sortBy === 'rating') return b.rating - a.rating;
       return 0;
     });
